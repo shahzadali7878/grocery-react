@@ -1,0 +1,31 @@
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  background-color: #77c3ec;
+  padding: 0 20px;
+
+  .Site-Title {
+    display: flex;
+    font-weight: bold;
+    font-size: 25px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .Site-Links {
+    display: flex;
+
+    .Site-Link {
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

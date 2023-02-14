@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  flex-direction: column;
+
+  .App-Header {}
+
+  .App-Body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

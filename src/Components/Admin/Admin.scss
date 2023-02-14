@@ -1,0 +1,28 @@
+.Admin {
+  display: flex;
+  flex-direction: column;
+
+  .Admin-Dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .Title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .Menu-Items {
+      display: flex;
+      margin-top: 20px;
+
+      .Menu-Item {
+        margin: 0 5px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
