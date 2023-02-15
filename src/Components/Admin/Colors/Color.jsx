@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { createColor, updateColor } from '../../../Actions/ColorsActions';
@@ -65,6 +65,7 @@ const Color = ({ colors, createColor, updateColor }) => {
             type="text"
             className="form-control"
             placeholder="Name"
+            name="name"
             value={colorAttributes.name}
             onChange={e => handleFieldChange('name', e.currentTarget.value)}
           />
@@ -75,19 +76,20 @@ const Color = ({ colors, createColor, updateColor }) => {
             type="text"
             className="form-control"
             placeholder="Code"
+            name="code"
             value={colorAttributes.code}
             onChange={e => handleFieldChange('code', e.currentTarget.value)}
           />
         </div>
 
         <button
-          className="btn btn-success"
+          className="Save-Color btn btn-success"
           disabled={submitting}
           onClick={e => handleSubmit(e)}
         >
           Submit
         </button>
-        <Link to="/admin/colors" className="btn btn-danger ms-1">Back</Link>
+        <Link to="/admin/colors" className="Back-Btn btn btn-danger ms-1">Back</Link>
       </form>
     </div>
   )

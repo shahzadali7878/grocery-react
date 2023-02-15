@@ -11,3 +11,6 @@
 2. Use change directory command to go into clonned repository. `cd grocery-react`
 3. Install packages with command `npm install`
 4. Start the app with command `npm start`
+
+**Specs**
+1. Run tests with command `npm run e2e` or `npx cypress open`

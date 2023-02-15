@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { createSize, updateSize } from '../../../Actions/SizesActions';
@@ -65,6 +65,7 @@ const Size = ({ sizes, createSize, updateSize }) => {
             type="text"
             className="form-control"
             placeholder="Name"
+            name="name"
             value={sizeAttributes.name}
             onChange={e => handleFieldChange('name', e.currentTarget.value)}
           />
@@ -75,19 +76,20 @@ const Size = ({ sizes, createSize, updateSize }) => {
             type="text"
             className="form-control"
             placeholder="Code"
+            name="code"
             value={sizeAttributes.code}
             onChange={e => handleFieldChange('code', e.currentTarget.value)}
           />
         </div>
 
         <button
-          className="btn btn-success"
+          className="Save-Size btn btn-success"
           disabled={submitting}
           onClick={e => handleSubmit(e)}
         >
           Submit
         </button>
-        <Link to="/admin/sizes" className="btn btn-danger ms-1">Back</Link>
+        <Link to="/admin/sizes" className="Back-Btn btn btn-danger ms-1">Back</Link>
       </form>
     </div>
   )

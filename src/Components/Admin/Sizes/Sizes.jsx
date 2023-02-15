@@ -40,7 +40,7 @@ const Sizes = ({ sizes, clearSizes, fetchSizes, deleteSize }) => {
 
     return (
       <div className="table-responsive">
-        <table className="table">
+        <table className="List-Sizes table">
           <thead className="table-dark">
             <tr>
               <th>Name</th>
@@ -57,7 +57,7 @@ const Sizes = ({ sizes, clearSizes, fetchSizes, deleteSize }) => {
                   <td>{size.name}</td>
                   <td>{size.code}</td>
                   <td>
-                    <Link to={`/admin/sizes/${size.id}`} className="btn btn-primary me-1">Edit</Link>
+                    <Link to={`/admin/sizes/${size.id}`} className="Edit-Size btn btn-primary me-1">Edit</Link>
                     <Confirm
                       yes={() => deleteSize(size.id)}
                       text="Delete"
@@ -75,7 +75,7 @@ const Sizes = ({ sizes, clearSizes, fetchSizes, deleteSize }) => {
   return (
     <div className="Sizes">
       <div className="container mt-3">
-        <Link to="/admin/sizes/new" className="btn btn-primary mb-1">New Size</Link>
+        <Link to="/admin/sizes/new" className="New-Size btn btn-primary mb-1">New Size</Link>
 
         {renderContent()}
       </div>

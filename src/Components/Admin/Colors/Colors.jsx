@@ -40,7 +40,7 @@ const Colors = ({ colors, clearColors, fetchColors, deleteColor }) => {
 
     return (
       <div className="table-responsive">
-        <table className="table">
+        <table className="List-Colors table">
           <thead className="table-dark">
             <tr>
               <th>Name</th>
@@ -57,7 +57,7 @@ const Colors = ({ colors, clearColors, fetchColors, deleteColor }) => {
                   <td>{color.name}</td>
                   <td>{color.code}</td>
                   <td>
-                    <Link to={`/admin/colors/${color.id}`} className="btn btn-primary me-1">Edit</Link>
+                    <Link to={`/admin/colors/${color.id}`} className="Edit-Color btn btn-primary me-1">Edit</Link>
                     <Confirm
                       yes={() => deleteColor(color.id)}
                       text="Delete"
@@ -75,7 +75,7 @@ const Colors = ({ colors, clearColors, fetchColors, deleteColor }) => {
   return (
     <div className="Colors">
       <div className="container mt-3">
-        <Link to="/admin/colors/new" className="btn btn-primary mb-1">New Color</Link>
+        <Link to="/admin/colors/new" className="New-Color btn btn-primary mb-1">New Color</Link>
 
         {renderContent()}
       </div>

@@ -32,7 +32,7 @@ const Categories = ({ categories, subCategories, products, clearProducts, fetchP
       setLoadingProducts(false);
       setProductErrors(res.errors ? res.errors : null);
     });
-  }, [clearProducts, fetchProducts]);
+  }, [clearProducts, fetchProducts, category.id, subCategory.id]);
 
   const renderContent = () => {
     if (loadingProducts)
@@ -46,7 +46,7 @@ const Categories = ({ categories, subCategories, products, clearProducts, fetchP
 
     return (
       <div className="table-responsive">
-        <table className="table">
+        <table className="List-Products table">
           <thead className="table-dark">
             <tr>
               <th>Name</th>
@@ -75,12 +75,12 @@ const Categories = ({ categories, subCategories, products, clearProducts, fetchP
                   <td>
                     <Link
                       to={`/admin/categories/${category.id}/sub_categories/${subCategory.id}/products/${product.id}`}
-                      className="btn btn-primary me-1"
+                      className="Edit-Product btn btn-primary me-1"
                     >
                       Edit
                     </Link>
                     <Confirm
-                      yes={() => deleteProduct(category.id, subCategory.id)}
+                      yes={() => deleteProduct(category.id, subCategory.id, product.id)}
                       text="Delete"
                     />
                   </td>
@@ -98,7 +98,7 @@ const Categories = ({ categories, subCategories, products, clearProducts, fetchP
       <div className="container mt-3">
         <Link
           to={`/admin/categories/${category.id}/sub_categories/${subCategory.id}/products/new`}
-          className="btn btn-primary mb-1"
+          className="New-Product btn btn-primary mb-1"
         >
           New Product
         </Link>

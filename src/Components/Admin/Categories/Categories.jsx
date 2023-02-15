@@ -40,7 +40,7 @@ const Categories = ({ categories, clearCategories, fetchCategories, deleteCatego
 
     return (
       <div className="table-responsive">
-        <table className="table">
+        <table className="List-Categories table">
           <thead className="table-dark">
             <tr>
               <th>Name</th>
@@ -57,12 +57,22 @@ const Categories = ({ categories, clearCategories, fetchCategories, deleteCatego
                   <td>{category.name}</td>
                   <td>{category.description}</td>
                   <td>
-                    <Link to={`/admin/categories/${category.id}`} className="btn btn-primary me-1">Edit</Link>
+                    <Link
+                      to={`/admin/categories/${category.id}`}
+                      className="Edit-Category btn btn-primary me-1"
+                    >
+                      Edit
+                    </Link>
                     <Confirm
                       yes={() => deleteCategory(category.id)}
                       text="Delete"
                     />
-                    <Link to={`/admin/categories/${category.id}/sub_categories`} className="btn btn-primary ms-1">SubCategories</Link>
+                    <Link
+                      to={`/admin/categories/${category.id}/sub_categories`}
+                      className="Link-SubCategories btn btn-primary ms-1"
+                    >
+                      SubCategories
+                    </Link>
                   </td>
                 </tr>
               ))
@@ -76,7 +86,7 @@ const Categories = ({ categories, clearCategories, fetchCategories, deleteCatego
   return (
     <div className="Categories">
       <div className="container mt-3">
-        <Link to="/admin/categories/new" className="btn btn-primary mb-1">New Category</Link>
+        <Link to="/admin/categories/new" className="New-Category btn btn-primary mb-1">New Category</Link>
 
         {renderContent()}
       </div>

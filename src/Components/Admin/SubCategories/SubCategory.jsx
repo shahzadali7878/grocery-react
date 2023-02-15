@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { createSubCategory, updateSubCategory } from '../../../Actions/SubCategoriesActions';
@@ -67,29 +67,36 @@ const SubCategory = ({ categories, subCategories, createSubCategory, updateSubCa
             type="text"
             className="form-control"
             placeholder="Name"
+            name="name"
             value={subCategoryAttributes.name}
             onChange={e => handleFieldChange('name', e.currentTarget.value)}
           />
         </div>
 
         <div className="mb-3">
-          <input
+          <textarea
             type="text"
             className="form-control"
             placeholder="Description"
+            name="description"
             value={subCategoryAttributes.description}
             onChange={e => handleFieldChange('description', e.currentTarget.value)}
           />
         </div>
 
         <button
-          className="btn btn-success"
+          className="Save-SubCategory btn btn-success"
           disabled={submitting}
           onClick={e => handleSubmit(e)}
         >
           Submit
         </button>
-        <Link to={`/admin/categories/${category.id}/sub_categories`} className="btn btn-danger ms-1">Back</Link>
+        <Link
+          to={`/admin/categories/${category.id}/sub_categories`}
+          className="Back-Btn btn btn-danger ms-1"
+        >
+          Back
+        </Link>
       </form>
     </div>
   )

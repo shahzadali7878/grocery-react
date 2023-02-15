@@ -30,7 +30,7 @@ const Categories = ({ categories, subCategories, clearSubCategories, fetchSubCat
       setLoadingSubCategories(false);
       setSubCategoryErrors(res.errors ? res.errors : null);
     });
-  }, [clearSubCategories, fetchSubCategories]);
+  }, [clearSubCategories, fetchSubCategories, category.id]);
 
   const renderContent = () => {
     if (loadingSubCategories)
@@ -44,7 +44,7 @@ const Categories = ({ categories, subCategories, clearSubCategories, fetchSubCat
 
     return (
       <div className="table-responsive">
-        <table className="table">
+        <table className="List-SubCategories table">
           <thead className="table-dark">
             <tr>
               <th>Name</th>
@@ -63,7 +63,7 @@ const Categories = ({ categories, subCategories, clearSubCategories, fetchSubCat
                   <td>
                     <Link
                       to={`/admin/categories/${category.id}/sub_categories/${subCategory.id}`}
-                      className="btn btn-primary me-1"
+                      className="Edit-SubCategory btn btn-primary me-1"
                     >
                       Edit
                     </Link>
@@ -73,7 +73,7 @@ const Categories = ({ categories, subCategories, clearSubCategories, fetchSubCat
                     />
                     <Link
                       to={`/admin/categories/${category.id}/sub_categories/${subCategory.id}/products`}
-                      className="btn btn-primary ms-1"
+                      className="Link-Products btn btn-primary ms-1"
                     >
                       Products
                     </Link>
@@ -90,7 +90,12 @@ const Categories = ({ categories, subCategories, clearSubCategories, fetchSubCat
   return (
     <div className="SubCategories">
       <div className="container mt-3">
-        <Link to={`/admin/categories/${category.id}/sub_categories/new`} className="btn btn-primary mb-1">New SubCategory</Link>
+        <Link
+          to={`/admin/categories/${category.id}/sub_categories/new`}
+          className="New-SubCategory btn btn-primary mb-1"
+        >
+          New SubCategory
+        </Link>
 
         {renderContent()}
       </div>

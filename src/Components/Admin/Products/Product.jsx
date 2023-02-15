@@ -57,8 +57,6 @@ const SubCategory = ({
     }
   );
 
-  console.log(productAttributes)
-
   useEffect(() => {
     clearColors();
     fetchColors().then(res => setLoadingColors(false));
@@ -117,16 +115,18 @@ const SubCategory = ({
             type="text"
             className="form-control"
             placeholder="Name"
+            name="name"
             value={productAttributes.name}
             onChange={e => handleFieldChange('name', e.currentTarget.value)}
           />
         </div>
 
         <div className="mb-3">
-          <input
+          <textarea
             type="text"
             className="form-control"
             placeholder="Description"
+            name="description"
             value={productAttributes.description}
             onChange={e => handleFieldChange('description', e.currentTarget.value)}
           />
@@ -137,6 +137,7 @@ const SubCategory = ({
             type="number"
             className="form-control"
             placeholder="Price"
+            name="price"
             value={productAttributes.price}
             onChange={e => handleFieldChange('price', e.currentTarget.value)}
           />
@@ -147,6 +148,7 @@ const SubCategory = ({
             type="number"
             className="form-control"
             placeholder="Discounted Price"
+            name="discounted-price"
             value={productAttributes.discounted_price}
             onChange={e => handleFieldChange('discounted_price', e.currentTarget.value)}
           />
@@ -161,6 +163,7 @@ const SubCategory = ({
               type="radio"
               className="form-check-input"
               id="on-sale-yes"
+              name="on-sale"
               checked={productAttributes.on_sale === true}
               onChange={e => handleFieldChange('on_sale', true)}
             />
@@ -174,6 +177,7 @@ const SubCategory = ({
               type="radio"
               className="form-check-input"
               id="on-sale-no"
+              name="on-sale"
               checked={productAttributes.on_sale === false}
               onChange={e => handleFieldChange('on_sale', false)}
             />
@@ -192,7 +196,7 @@ const SubCategory = ({
               <div className="form-check" key={`color-${index}`}>
                 <input
                   type="checkbox"
-                  className="form-check-input"
+                  className="Field-Color form-check-input"
                   id={`color-${color.name}`}
                   checked={productAttributes.color_ids.includes(color.id)}
                   onChange={e => handleDependentFieldChange('color_ids', color.id)}
@@ -214,7 +218,7 @@ const SubCategory = ({
               <div className="form-check" key={`size-${index}`}>
                 <input
                   type="checkbox"
-                  className="form-check-input"
+                  className="Field-Size form-check-input"
                   id={`size-${size.name}`}
                   checked={productAttributes.size_ids.includes(size.id)}
                   onChange={e => handleDependentFieldChange('size_ids', size.id)}
@@ -228,7 +232,7 @@ const SubCategory = ({
         </div>
 
         <button
-          className="btn btn-success"
+          className="Save-Product btn btn-success"
           disabled={submitting}
           onClick={e => handleSubmit(e)}
         >
@@ -236,7 +240,7 @@ const SubCategory = ({
         </button>
         <Link
           to={`/admin/categories/${category.id}/sub_categories/${subCategory.id}/products`}
-          className="btn btn-danger ms-1"
+          className="Back-Btn btn btn-danger ms-1"
         >
           Back
         </Link>
